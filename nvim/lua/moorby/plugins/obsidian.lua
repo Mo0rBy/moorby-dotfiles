@@ -1,24 +1,45 @@
+-- Set some globally used variables in this plugin config
+local home = os.getenv("HOME") or "~"
+local obsidian_vaults_dir = os.getenv("OBSIDIAN_VAULTS") or string.format("%s/Obsidian_vaults", home)
+
+-- Function to get a list of all the users vaults stored in their vaults directory
+local get_vault_paths = function()
+  return vim.split(vim.fn.glob(obsidian_vaults_dir .. "/*"), '\n', {trimempty=true})
+end
+
+local define_workspaces = function() -- Dynamically defines workspaces based on vaults found in the users vault storage directory
+  local workspaces = {}
+  local obsidian_vaults_paths = get_vault_paths()
+  for _, path in ipairs(obsidian_vaults_paths) do
+    table.insert(workspaces, {
+      name = path:gsub(obsidian_vaults_dir .. "/", ""),
+      path = path,
+    })
+  end
+  return workspaces
+end
 
 -- This function will:
--- 1. Prompt user to select the Obsidian vault for the new note
--- 2. Create a new Obsidian note
--- 3. Delete everything in the file (removes the default Obsidian template)
--- 4. Prompt user to select a note template
+-- 1. Change directory to the users vault storage directory
+-- 2. Prompt user to select the Obsidian vault for the new note
+-- 3. Create a new Obsidian note
+-- 4. Delete everything in the file (removes the default Obsidian template)
+-- 5. Prompt user to select a note template (from their templates directory)
 local create_note_func = function()
+  vim.cmd(string.format("cd %s", obsidian_vaults_dir))
+
+  local obsidian_vault_names = {}
+  local obsidian_vault_paths = get_vault_paths()
+
+  for i, path in ipairs(obsidian_vault_paths) do
+    obsidian_vault_names[i] = path:gsub(obsidian_vaults_dir .. "/", "")
+  end
+
   vim.ui.select( -- Using this means it depends on "stevearc/dressing.nvim" for a nice UI
-    { "work", "non-work" },
+    obsidian_vault_names,
     { prompt = "Select a vault: " },
     function (choice)
-      if choice == "work" then
-        vim.cmd("cd ~/Obsidian_vaults/work-vault")
-      elseif choice == "non-work" then
-        vim.cmd("cd ~/Obsidian_vaults/second-brain")
-      else
-        print("No valid choice was selected. Exiting...")
-        return
-      end
-
-
+      vim.cmd(string.format("ObsidianWorkspace %s", choice))
       vim.cmd('ObsidianNew')
       vim.cmd('%d')
       vim.cmd('ObsidianTemplate')
@@ -45,21 +66,12 @@ return {
   config = function()
     -- Set plugin configuration
     require("obsidian").setup({
-      workspaces = {
-        {
-          name = "non-work",
-          path = "~/Obsidian_vaults/second-brain",
-        },
-        {
-          name = "work",
-          path = "~/Obsidian_vaults/work-vault",
-        },
-      },
+      workspaces = define_workspaces(),
       completion = {
         nvim_cmp = true,
         min_chars = 2,
       },
-      notes_subdir = "inbox",
+      notes_subdir = "$inbox",
       new_notes_location = "notes_subdir",
       disable_frontmatter = false,
       templates = {
