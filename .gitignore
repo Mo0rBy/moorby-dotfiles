@@ -45,3 +45,8 @@ nvim/lazy-lock.json
 # unignore yazi directory
 !yazi
 !yazi/**
+
+
+
+# ignore anything ending in '.local'
+**/*.local

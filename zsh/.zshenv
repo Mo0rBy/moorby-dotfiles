@@ -1,5 +1,8 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export OBSIDIAN_VAULTS="$HOME/Obsidian_vaults"
 . "$HOME/.cargo/env"
+
+if [[ -r "$ZDOTDIR/.zshenv.local" ]]; then
+    source "$ZDOTDIR/.zshenv.local"
+fi
