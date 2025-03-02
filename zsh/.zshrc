@@ -152,6 +152,9 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 # Activate pyenv
 eval "$(pyenv init -)"
 
+# Activate zsh-autosuggestions
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Custom aliases
 alias nn="nvim -c NewNote"
 
