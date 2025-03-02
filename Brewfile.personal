@@ -1,0 +1,15 @@
+tap "qmk/qmk"
+
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
+# Transfer files from and to an Android smartphone
+cask "android-file-transfer"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Fitting tool for EVE Online
+cask "pyfa"
+# Video game digital distribution service
+cask "steam"
+# Modern, open-source, and free voice chat overlay for Discord
+cask "overlayed"
+

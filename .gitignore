@@ -35,8 +35,9 @@ nvim/lazy-lock.json
 !scripts/
 !scripts/**
 
-# unignore Brewfile
+# unignore Brewfiles
 !Brewfile
+!Brewfile.personal
 
 # unignore wezterm directory
 !wezterm
