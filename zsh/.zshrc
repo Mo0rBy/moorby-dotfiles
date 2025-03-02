@@ -154,7 +154,6 @@ eval "$(pyenv init -)"
 
 # Custom aliases
 alias nn="nvim -c NewNote"
-alias kn="nvim -c 'lua require(\"kubectl\").toggle()'"
 
 # Yazi function to change current directory to selected
 function yy() {
