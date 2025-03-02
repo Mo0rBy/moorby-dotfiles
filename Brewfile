@@ -3,7 +3,6 @@ tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/linux-fonts"
 tap "homebrew/services"
-tap "lusingander/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
@@ -120,8 +119,6 @@ brew "fluxcd/tap/flux"
 brew "hashicorp/tap/packer"
 # Cousine nerd font (cousine) font
 brew "homebrew/linux-fonts/font-cousine-nerd-font", link: false
-# A rich git commit graph in your terminal, like magic
-brew "lusingander/tap/serie"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Password manager that keeps all passwords secure behind one password
