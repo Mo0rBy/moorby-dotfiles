@@ -60,6 +60,8 @@ brew "lazygit"
 brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
 brew "node"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Paste PNG into files
 brew "pngpaste"
 # Tool for managing OCI containers and pods
