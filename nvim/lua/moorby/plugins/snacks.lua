@@ -49,9 +49,6 @@ return {
   priority = 999,
   lazy = false,
   opts = {
-    notify = {
-      enabled = true,
-    },
     notifier = {
       enabled = true,
     },
