@@ -58,6 +58,9 @@ return {
     lazygit = {
       enabled = true,
     },
+    statuscolumn = {
+      enabled = true,
+    },
   },
   keys = {
     -- notications
