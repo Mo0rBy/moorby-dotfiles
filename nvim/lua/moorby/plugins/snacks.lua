@@ -54,10 +54,15 @@ return {
     },
     notifier = {
       enabled = true,
-
-    }
+    },
+    lazygit = {
+      enabled = true,
+    },
+  },
   keys = {
     -- notications
     { "<leader>nh", function() Snacks.notifier.show_history() end, {desc = "Show notifications history"} },
+    -- git
+    { "<leader>lg", function() Snacks.lazygit() end, {desc = "Open lazygit"} },
   },
 }
