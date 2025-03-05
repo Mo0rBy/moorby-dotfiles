@@ -3,6 +3,9 @@ tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/linux-fonts"
 tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "localstack/tap"
+tap "norwoodj/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
@@ -21,6 +24,8 @@ brew "clamav"
 brew "cmake"
 # Tool for interacting with remote images and registries
 brew "crane"
+# Tool for exploring each layer in a docker image
+brew "dive"
 # Simple command-line tool for creating clusters on Amazon EKS
 brew "eksctl"
 # Modern, maintained replacement for ls
@@ -57,12 +62,16 @@ brew "kind"
 brew "kustomize"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Lazier way to manage everything docker
+brew "lazydocker"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
 brew "node"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Paste PNG into files
 brew "pngpaste"
 # Tool for managing OCI containers and pods
@@ -119,6 +128,10 @@ brew "fluxcd/tap/flux"
 brew "hashicorp/tap/packer"
 # Cousine nerd font (cousine) font
 brew "homebrew/linux-fonts/font-cousine-nerd-font", link: false
+# A simple terminal UI for git commands, written in Go
+brew "jesseduffield/lazygit/lazygit"
+# Automatically generate markdown documentation for helm charts
+brew "norwoodj/tap/helm-docs"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Password manager that keeps all passwords secure behind one password
