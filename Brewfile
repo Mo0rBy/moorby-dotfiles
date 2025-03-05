@@ -5,6 +5,7 @@ tap "homebrew/linux-fonts"
 tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
+tap "qmk/qmk"
 tap "warrensbox/tap"
 # Securely store and access AWS credentials in development environments
 brew "aws-vault"
@@ -118,10 +119,14 @@ brew "fluxcd/tap/flux"
 brew "hashicorp/tap/packer"
 # Cousine nerd font (cousine) font
 brew "homebrew/linux-fonts/font-cousine-nerd-font", link: false
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
+# Transfer files from and to an Android smartphone
+cask "android-file-transfer"
 # Chromium based browser
 cask "arc"
 # Data management tool that enables working with SQL Server
@@ -130,6 +135,8 @@ cask "azure-data-studio"
 cask "bruno"
 # Voice and text chat software
 cask "discord"
+# App to build and share containerised applications and microservices
+cask "docker"
 # Online diagram software
 cask "drawio"
 cask "font-commit-mono-nerd-font"
@@ -138,24 +145,38 @@ cask "font-cousine-nerd-font"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Open Source Multimedia Framework
+cask "gstreamer-runtime"
 # ZSA keyboard firmware flasher
 cask "keymapp"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
 # Visual tool to design, develop and administer MySQL servers
 cask "mysqlworkbench"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Modern, open-source, and free voice chat overlay for Discord
+cask "overlayed"
 # Administration and development platform for PostgreSQL
 cask "pgadmin4"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
+# Fitting tool for EVE Online
+cask "pyfa"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
+# Charting and social-networking for investment traders
+cask "tradingview"
 # Open-source code editor
 cask "visual-studio-code"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
