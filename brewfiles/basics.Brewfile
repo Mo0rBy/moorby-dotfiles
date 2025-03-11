@@ -17,6 +17,7 @@ cask "visual-studio-code"
 
 # brews
 brew "handbrake"
+brew "syncthing"
 
 # mas
 mas "Amphetamine", id: 937984704
