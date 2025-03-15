@@ -98,7 +98,7 @@ return {
         nvim_cmp = true,
         min_chars = 2,
       },
-      notes_subdir = "$inbox",
+      notes_subdir = "0_inbox",
       new_notes_location = "notes_subdir",
       disable_frontmatter = false,
       templates = {
