@@ -37,7 +37,8 @@ local opts = {
 require("lazy").setup(
   {
     { import = "moorby.plugins" },
-    { import = "moorby.plugins.lsp" }
+    { import = "moorby.plugins.lsp" },
+    { import = "moorby.plugins.git-utils" },
   },
   opts
 )
