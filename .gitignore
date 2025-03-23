@@ -48,7 +48,10 @@ brewfiles/work.Brewfile
 !yazi
 !yazi/**
 
-
-
 # ignore anything ending in '.local'
+# this means that the file is for the local system only and should not be committed
 **/*.local
+
+# unignore git directory
+!git/
+!git/**
