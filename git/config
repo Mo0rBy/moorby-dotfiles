@@ -1,0 +1,17 @@
+# Git user info must come from somewhere else.
+# Read the git-config documentation (https://git-scm.com/docs/git-config)
+# to see the hierarchy of loading values from config files.
+# It is recommened to set Git user options in the "global" config location.
+
+[push]
+	autoSetupRemote = true
+
+# configure git-delta diff pager tool
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+[merge]
+    conflictstyle = zdiff3
