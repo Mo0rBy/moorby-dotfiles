@@ -11,10 +11,11 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-
     local luasnip = require("luasnip")
-
     local lspkind = require("lspkind")
+
+    -- load custom sources into runtime path
+    require("moorby.cmp-sources.vault-lTags")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -43,6 +44,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "test-source" },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
