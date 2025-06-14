@@ -5,14 +5,15 @@ tap "qmk/qmk"
 
 # casks
 cask "android-file-transfer"
+cask "drawio"
 cask "gstreamer-runtime"
 cask "keymapp"
+cask "notunes"
 cask "obs"
 cask "overlayed"
 cask "pyfa"
 cask "qmk-toolbox"
 cask "steam"
-cask "drawio"
 
 # brews
 brew "qmk/qmk/qmk"
