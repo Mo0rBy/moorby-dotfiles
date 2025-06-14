@@ -148,7 +148,7 @@ return {
         })
 
       elseif (lsp == "java_language_server") then -- configure java_language_server with special settings
-        lspconfig["groovyls"].setup({
+        lspconfig["java_language_server"].setup({
           capabilities = capabilities,
           on_attach = on_attach,
           cmd = { "java-language-server" },
