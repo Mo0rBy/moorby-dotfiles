@@ -42,6 +42,5 @@ return {
     keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Find in all opened buffers"})
     keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Find help tags"})
     keymap.set('n', '<leader>fk', builtin.keymaps, {desc = "Find keymaps with Telescope"})
-    keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", {desc = "List and select git branches"})
   end
 }
