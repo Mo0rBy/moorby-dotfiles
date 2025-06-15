@@ -14,8 +14,5 @@ return {
       autotag = { enable = true }, -- uses dependency "windwp/nvim-ts-autotag"
       ensure_installed = "all" -- ensures that all language parsers are installed
     })
-
-    -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-    require("ts_context_commentstring").setup({})
   end,
 }
