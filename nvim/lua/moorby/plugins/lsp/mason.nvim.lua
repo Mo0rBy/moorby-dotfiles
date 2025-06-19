@@ -1,7 +1,7 @@
 return {
   "mason-org/mason.nvim",
   dependencies = {
-    "mason-org/mason-lspconfig"
+    "mason-org/mason-lspconfig.nvim"
   },
   lazy = false,
   config = function()
