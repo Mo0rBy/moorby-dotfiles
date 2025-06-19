@@ -64,6 +64,7 @@ return {
       end
     end, { desc = "Peek Fold" })
 
+    -- TODO: Remove these, no longer using neogit
     -- Disable folding in NeoGit windows
     vim.api.nvim_create_augroup("nvim-ufo_neogit", { clear = true })
 
