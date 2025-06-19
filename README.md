@@ -93,64 +93,83 @@ Neovim is an evolution of vi and vim. You can install many different plugins to 
 ### Plugins
 
 This is a list of all the plugins I use in my Neovim config.
+They are listed in the same order they appear in the file tree, and are divided into directories that describe what the plugin affects or what it helps to achieve in my workflows.
 
-#### Quality of life
+#### Appearance
 
-- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - adds useful keymaps for navigating splits within vim and tmux
+The plugins listed here affect the _appearance_ of my Neovim editor, either adding new informative UI elements or modifying existing things to make them easier to read and process by eye.
+
+- [alpha](https://github.com/goolord/alpha-nvim) - adds a customizable greeting pane when you start neovim
+- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - makes it easier to see indentation (my configuration uses the `scope` too), this has dependencies for:
+    - [indent-rainbowline](https://github.com/TheGLander/indent-rainbowline.nvim) - adds VSCode style rainbow indentation indiciators
+- [lualine](https://github.com/nvim-lualine/lualine.nvim) - adds a status line
+- [mini.icons](https://github.com/echasnovski/mini.icons/tree/main) & [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)- adds nice icons
+- [noice](https://github.com/folke/noice.nvim) - adds different UI elements and more customisation to notifications, cmdline and searching
+- [quicker.nvim](https://github.com/stevearc/quicker.nvim) - makes the quickfix list prettier and have better formatting
+- [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim) - adds rainbow bracket delimiters (`{}` and `()`)
+- [statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim) - adds a configurable status column for:
+  - code folding
+  - git signs
+  - diagnostics
+  - line numbers
+
+#### Explorer
+
+These plugins assist in finding files or pieces of code within projects.
+
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - a file explorer plugin, I prefer it over the default netrw plugin
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) - a fuzzy finder plugin making it easier to find open buffers as well as files and text across directories, this has dependencies for:
     - [plenary](https://github.com/nvim-lua/plenary.nvim) - adds extra lua functions
     - [ripgrep](https://github.com/BurntSushi/ripgrep) - a tool that can recursively search across directories for a regex pattern
-- [vim-illuminate](https://github.com/RRethy/vim-illuminate) - this plugin will highlight other instances of a word that the cursor is on
-- [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) - this plugin highlights what was just yanked (copied)
-- [vim-maximizer](https://github.com/szw/vim-maximizer) - used to maximize (and return to normal) a split
-- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - makes it easier to see indentation (my configuration uses the `scope` too), this has dependencies for:
-    - [indent-rainbowline](https://github.com/TheGLander/indent-rainbowline.nvim) - adds VSCode style rainbow indentation indiciators
-    - [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim) - adds rainbow bracket delimiters (`{}` and `()`)
-- [comment](https://github.com/numToStr/Comment.nvim) - used for better commenting functionality, this has dependencies for:
-    - [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - used for better commenting in files with multiple comment formats
-- [vim-surround](https://github.com/tpope/vim-surround) - adds useful keymaps to modify textobject surroundings
-- [cutlass](https://github.com/gbprod/cutlass.nvim) - modifies delete keys to use the blackhole register to make copy/paste/delete workflows easier
-- [nvim-silicon](https://github.com/michaelrommel/nvim-silicon) - Adds nvim integration for Silicon code snapshot CLI tool
-- [auto-session](https://github.com/rmagatti/auto-session) - adds session management functionality
-
-#### UI modifications
-
-- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - a file explorer plugin, I prefer it over the default netrw plugin
-- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - better icons for filetypes
-- [dressing](https://github.com/stevearc/dressing.nvim) - modifies some UI elements for example, adding/renaming files in nvim-tree or inputs for LSP renaming
-- [lualine](https://github.com/nvim-lualine/lualine.nvim) - adds a status line
-- [noice]https://github.com/folke/noice.nvim) - adds different UI elements and more customisation to notifications, cmdline and searching
-- [alpha](https://github.com/goolord/alpha-nvim) - adds a customizable greeting pane when you start neovim
-- [nvim-pqf](https://github.com/yorickpeterse/nvim-pqf) - modifies the quickfix window and makes it easier to read
-
-#### Syntax highlighting
-
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - provides better syntax highlighting, this has dependencies for:
-    - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) - autoclose and autorename html tags
-- [vim-polyglot](https://github.com/sheerun/vim-polyglot) - this plugin is a language pack that adds syntax highlighting support for ~150 more languages. This includes adding `helm` filetypes which is one of the reasons I use it
-- [tree-sitter-go-tempalte](https://github.com/ngalaiko/tree-sitter-go-template) - adds syntax highlighting for Go template filetypes
-
-#### Auto-completion features
-
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - used for autocompletion snippets, this has dependencies for:
-    - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) - completion source from text in current buffer
-    - [cmp-path](https://github.com/hrsh7th/cmp-path) - completion source from filesystem paths
-    - [LuaSnip](https://github.com/L3MON4D3/LuaSnip) - a snippet engine
-    - [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) - completion source from snippet engines
-    - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - snippets for various languages
-    - [lspkind](https://github.com/onsails/lspkind.nvim) - nice icons for autocompletion
-- [mason](https://github.com/williamboman/mason.nvim) - this is a plugin manager for LSP servers, this has dependencies for:
-    - [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) - this plugin makes it easier to use lspconfig with Mason 
-- [lspconfig](https://github.com/neovim/nvim-lspconfig) - this plugin allows setup and configuration of LSP servers
 
 #### Git
 
-- [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - adds git integration to buffers so you can see git changes + git blame etc
-- [neogit](https://github.com/NeogitOrg/neogit) - adds neovim integration for git workflows, e.g. viewing diffs and committing changes, viewing git log/reflog, interactive rebasing, etc (same sort of thing as lazygit, but has a more intuative UI design and better configurability + keymapping)
-- [diffview](https://github.com/sindrets/diffview.nvim) - adds a nice git diff view (like VSCode)
+These plugins are primarily focussed on Git and related workflows.
 
-#### Note Taking
-- [obsidian](https://github.com/epwalsh/obsidian.nvim) - adds neovim integration with [Obsidian app](https://obsidian.md/)
+- [blame.nvim](https://github.com/FabijanZulj/blame.nvim) - adds the ability to see git blame for an entire file
+- [vgit](https://github.com/tanvirtin/vgit.nvim) - adds a number of git utilities:
+  - project git diff & status
+  - project git logs
+  - git history for a buffer
+  - git conflict resolution
+  - live git blame (for a single line)
+
+#### LSP (Language Server Protocol)
+
+These plugins include LSP configuration plugins as well as some other useful plugins that enhance coding efficiency.
+
+- [inc-rename](https://github.com/smjonas/inc-rename.nvim) - adds a command for LSP renaming with immeadiate visual feedback (renaming a variable, function name, class name, etc.)
+- [lspconfig](https://github.com/neovim/nvim-lspconfig) - this plugin allows setup and configuration of LSP servers
+- [mason.nvim](https://github.com/williamboman/mason.nvim) - this is a plugin manager for LSP servers, this has dependencies for:
+    - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) - this plugin makes it easier to use lspconfig with Mason 
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - used for autocompletion snippets, this has dependencies for:
+  - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) - completion source from text in current buffer
+  - [cmp-path](https://github.com/hrsh7th/cmp-path) - completion source from filesystem paths
+  - [LuaSnip](https://github.com/L3MON4D3/LuaSnip) - a snippet engine
+  - [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) - completion source from snippet engines
+  - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - snippets for various languages
+  - [lspkind](https://github.com/onsails/lspkind.nvim) - nice icons for autocompletion
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - provides better syntax highlighting
+
+#### QOL (Quality Of Life)
+
+- [cutlass](https://github.com/gbprod/cutlass.nvim) - modifies delete keys to use the blackhole register to make copy/paste/delete workflows easier
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - updates folding features
+- [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) - this plugin highlights what was just yanked (copied)
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate) - this plugin will highlight other instances of a word that the cursor is on
+- [vim-maximizer](https://github.com/szw/vim-maximizer) - used to maximize (and return to normal) a split
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot) - this plugin is a language pack that adds syntax highlighting support for ~150 more languages
+- [vim-surround](https://github.com/tpope/vim-surround) - adds useful keymaps to modify textobject surroundings (mostly changing surrounding single quotes to double quotes, or changing bracket types)
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - adds useful keymaps for navigating splits within and between vim and tmux
+- [which-key](https://github.com/folke/which-key.nvim) - adds a visual popup that shows keymaps when typing a keymap (helps to find the keymap you want, without needing to dig deeper to find them)
+
+#### Other (no parent folder)
+
+These plugin files do not reside in a parent folder as I do not see them as fitting the current categories and they do not fit into a new category.
+
+- [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - adds commands to launch a local server to easily view markdown files within a browser
+- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - this plugin integrates Neovim with the [Obsidian](https://obsidian.md/) notetaking app, adding useful commands and utilities that assist in managing and taking notes 
+- [nvim-silicon](https://github.com/michaelrommel/nvim-silicon) - integrates Silicon CLI tool to take code snapshots and create an image file
 
 ## K9s
 
