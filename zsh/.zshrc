@@ -176,4 +176,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+alias ":q"="exit"
+
 # TODO: Create a conditional to check ohmyzsh is installed, if not, install it
