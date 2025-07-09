@@ -178,4 +178,6 @@ fi
 
 alias ":q"="exit"
 
+export PATH=$PATH:$(go env GOPATH)/bin # Add go bin to PATH
+
 # TODO: Create a conditional to check ohmyzsh is installed, if not, install it
