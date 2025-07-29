@@ -39,3 +39,6 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+-- spelling
+opt.spelllang = {"en_gb"}
