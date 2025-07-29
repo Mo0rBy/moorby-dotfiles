@@ -14,12 +14,12 @@ This repository contains files relevant to my development environment and other 
   * [Plugins](#plugins)
 - [Neovim](#neovim)
   * [Plugins](#plugins-1)
-    + [Quality of life](#quality-of-life)
-    + [UI modifications](#ui-modifications)
-    + [Syntax highlighting](#syntax-highlighting)
-    + [Auto-completion features](#auto-completion-features)
+    + [Appearance](#appearance)
+    + [Explorer](#explorer)
     + [Git](#git)
-    + [Note Taking](#note-taking)
+    + [LSP (Language Server Protocol)](#lsp-language-server-protocol)
+    + [QOL (Quality Of Life)](#qol-quality-of-life)
+    + [Other (no parent folder)](#other-no-parent-folder)
 - [K9s](#k9s)
   * [Setup](#setup-2)
 - [Extra CLI Tools](#extra-cli-tools)
@@ -170,6 +170,7 @@ These plugin files do not reside in a parent folder as I do not see them as fitt
 - [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - adds commands to launch a local server to easily view markdown files within a browser
 - [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - this plugin integrates Neovim with the [Obsidian](https://obsidian.md/) notetaking app, adding useful commands and utilities that assist in managing and taking notes 
 - [nvim-silicon](https://github.com/michaelrommel/nvim-silicon) - integrates Silicon CLI tool to take code snapshots and create an image file
+- [vim-asciidoctor](https://github.com/habamax/vim-asciidoctor) - adds better/faster asciidoc support and some helpful export commands
 
 ## K9s
 
