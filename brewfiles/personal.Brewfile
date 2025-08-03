@@ -6,6 +6,7 @@ tap "qmk/qmk"
 # casks
 cask "android-file-transfer"
 cask "drawio"
+cask "folx"
 cask "gstreamer-runtime"
 cask "keymapp"
 cask "notunes"
