@@ -173,12 +173,13 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
   autoload -Uz compinit
-  compinit
+  compinit -i
 fi
 
 alias ":q"="exit"
 
 export PATH=$PATH:$(go env GOPATH)/bin # Add go bin to PATH
+
 export KIND_EXPERIMENTAL_PROVIDER=podman # Set Kind to use Podman provider
 
 # TODO: Create a conditional to check ohmyzsh is installed, if not, install it
