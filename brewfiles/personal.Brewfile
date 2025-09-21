@@ -15,6 +15,7 @@ cask "obs"
 cask "overlayed"
 cask "pyfa"
 cask "qmk-toolbox"
+cask "shutter-encoder"
 cask "steam"
 
 # brews
