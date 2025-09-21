@@ -9,4 +9,4 @@ echo "--- NVIM LAZY SYNC ---"
 nvim --headless "+Lazy! sync" +qa
 
 echo "--- MACOS UPGRADE ---"
-softwareupdate -ia
+sudo softwareupdate -ia --restart
