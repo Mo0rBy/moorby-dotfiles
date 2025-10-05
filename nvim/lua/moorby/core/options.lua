@@ -42,3 +42,7 @@ opt.iskeyword:append("-")
 
 -- spelling
 opt.spelllang = {"en_gb"}
+
+-- undo/redo settings
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.vim/undo-dir")

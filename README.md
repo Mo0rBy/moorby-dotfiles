@@ -155,6 +155,7 @@ These plugins include LSP configuration plugins as well as some other useful plu
 
 - [cutlass](https://github.com/gbprod/cutlass.nvim) - modifies delete keys to use the blackhole register to make copy/paste/delete workflows easier
 - [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - updates folding features
+- [time-machine](https://github.com/y3owk1n/time-machine.nvim) - adds an undo/redo tree for easier navigation of undo history
 - [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) - this plugin highlights what was just yanked (copied)
 - [vim-illuminate](https://github.com/RRethy/vim-illuminate) - this plugin will highlight other instances of a word that the cursor is on
 - [vim-maximizer](https://github.com/szw/vim-maximizer) - used to maximize (and return to normal) a split
