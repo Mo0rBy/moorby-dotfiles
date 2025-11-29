@@ -28,20 +28,16 @@ return {
         "gopls",
         "groovyls",
         "html",
-        -- "htmx", -- leaving this out for now as it does not install correctly and it looks to be a very new LSP server
         "helm_ls",
         "jsonls",
         "java_language_server",
-        "quick_lint_js",
         "ts_ls",
-        "jqls",
         "lua_ls",
         "marksman",
         "pyright",
         "terraformls",
         "tflint",
-        "lemminx",
-        "yamlls"
+        "yamlls",
       },
       automatic_installation = false,  -- do not auto-install LSP servers for languages not already installed when relevant file type is opened
       automatic_enable = false
