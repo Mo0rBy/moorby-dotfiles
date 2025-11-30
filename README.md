@@ -168,7 +168,6 @@ These plugins include LSP configuration plugins as well as some other useful plu
 
 These plugin files do not reside in a parent folder as I do not see them as fitting the current categories and they do not fit into a new category.
 
-- [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - adds commands to launch a local server to easily view markdown files within a browser
 - [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - this plugin integrates Neovim with the [Obsidian](https://obsidian.md/) notetaking app, adding useful commands and utilities that assist in managing and taking notes 
 - [nvim-silicon](https://github.com/michaelrommel/nvim-silicon) - integrates Silicon CLI tool to take code snapshots and create an image file
 - [vim-asciidoctor](https://github.com/habamax/vim-asciidoctor) - adds better/faster asciidoc support and some helpful export commands
