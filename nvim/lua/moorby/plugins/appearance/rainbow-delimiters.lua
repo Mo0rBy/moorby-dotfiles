@@ -1,6 +1,6 @@
 return {
   "hiphish/rainbow-delimiters.nvim",
-  lazy = false,
+  event = { "BufReadPre", "BufNewFile" },
   submodules = false,
   config = function()
     require("rainbow-delimiters.setup").setup({})
