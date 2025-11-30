@@ -1,8 +1,10 @@
 -- This plugin creates code snapshot images (like CodeSnap in VSCode)
 return {
   "michaelrommel/nvim-silicon",
-  event = "VeryLazy",
-  config = function ()
+  keys = {
+    { "<leader>cs", ":Silicon<CR>", mode = "v", desc = "Take a CodeSnapshot using Silicon" }
+  },
+  config = function()
     require("silicon").setup({
       font = "Cousine Nerd Font Mono",
       theme = "Monokai Extended",
@@ -13,10 +15,5 @@ return {
         )
       end
     })
-
-    -- Set keymaps
-    local keymap = vim.keymap
-
-    keymap.set("v", "<leader>cs", ":Silicon<CR>", {desc = "Take a CodeSnapshot using Silicon"})
   end
 }
