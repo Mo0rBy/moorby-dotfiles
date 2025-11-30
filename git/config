@@ -3,8 +3,24 @@
 # to see the hierarchy of loading values from config files.
 # It is recommened to set Git user options in the "global" config location.
 
+[user]
+	name = Mo0rBy
+	; name = Will Moorby
+	email = will.moorby2@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ5XQDFArksZRDDLPmgXi7O9t94PS57yMUOHI1dXttI
+
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = ~/.ssh/allowed_signers
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+
 [push]
 	autoSetupRemote = true
 
 [diff]
-    external = difft
+	external = difft
