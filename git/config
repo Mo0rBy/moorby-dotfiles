@@ -4,8 +4,7 @@
 # It is recommened to set Git user options in the "global" config location.
 
 [user]
-	name = Mo0rBy
-	; name = Will Moorby
+	name = Will Moorby
 	email = will.moorby2@gmail.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ5XQDFArksZRDDLPmgXi7O9t94PS57yMUOHI1dXttI
 
