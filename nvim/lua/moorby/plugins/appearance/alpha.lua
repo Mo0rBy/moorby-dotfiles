@@ -1,5 +1,6 @@
 return {
   "goolord/alpha-nvim",
+  dependencies = { "folke/snacks.nvim" },
   event = "VimEnter",
   config = function()
     local alpha = require("alpha")
@@ -22,9 +23,9 @@ return {
     -- Set menu buttons
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New file" , ":ene <BAR> startinsert <CR>"),
-      dashboard.button("SPC ff", "󰈞  > Find file", ":Telescope find_files<CR>"),
-      dashboard.button("SPC fg", "  > Find word", ":Telescope live_grep<CR>"),
-      dashboard.button("SPC fr", "  > Recent"   , ":Telescope oldfiles<CR>"),
+      dashboard.button("SPC ff", "󰈞  > Find file", function() Snacks.picker.files() end),
+      dashboard.button("SPC fg", "  > Find word", function() Snacks.picker.grep() end),
+      dashboard.button("SPC fr", "  > Recent"   , function() Snacks.picker.recent() end),
       dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", ":SessionRestore<CR>"),
       dashboard.button("c", "  > Configuration" , ":e $XDG_CONFIG_HOME/nvim<CR>"),
       dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
