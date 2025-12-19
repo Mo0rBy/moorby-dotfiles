@@ -54,12 +54,7 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function()
         -- set keymaps
-        keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<CR>", { desc = "Show LSP references", noremap = true, silent = true })
         keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, { desc = "Go to declaration", noremap = true, silent = true })
-        keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", {desc = "Show LSP definitions", noremap = true, silent = true })
-        keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>", { desc = "Show LSP implementations", noremap = true, silent = true })
-        keymap.set("n", "<leader>lt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Show LSP type definitions", noremap = true, silent = true })
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics", noremap = true, silent = true })
         keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics", noremap = true, silent = true })
         keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Go to previous diagnostics", noremap = true, silent = true })
         keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Go to next diagnostic", noremap = true, silent = true })
