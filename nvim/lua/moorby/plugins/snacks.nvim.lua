@@ -11,6 +11,7 @@ return {
       }
     },
     input = {},
+    statuscolumn = {},
   },
   keys = {
     -- picker keys
