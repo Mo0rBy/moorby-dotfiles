@@ -118,9 +118,6 @@ The plugins listed here affect the _appearance_ of my Neovim editor, either addi
 These plugins assist in finding files or pieces of code within projects.
 
 - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - a file explorer plugin, I prefer it over the default netrw plugin
-- [telescope](https://github.com/nvim-telescope/telescope.nvim) - a fuzzy finder plugin making it easier to find open buffers as well as files and text across directories, this has dependencies for:
-    - [plenary](https://github.com/nvim-lua/plenary.nvim) - adds extra lua functions
-    - [ripgrep](https://github.com/BurntSushi/ripgrep) - a tool that can recursively search across directories for a regex pattern
 
 #### Git
 
@@ -168,9 +165,10 @@ These plugins include LSP configuration plugins as well as some other useful plu
 
 These plugin files do not reside in a parent folder as I do not see them as fitting the current categories and they do not fit into a new category.
 
-- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - this plugin integrates Neovim with the [Obsidian](https://obsidian.md/) notetaking app, adding useful commands and utilities that assist in managing and taking notes 
+- [obsidian.nvim](https://github.com/obsidian-nvim/obsidian.nvim) - this plugin integrates Neovim with the [Obsidian](https://obsidian.md/) notetaking app, adding useful commands and utilities that assist in managing and taking notes 
 - [nvim-silicon](https://github.com/michaelrommel/nvim-silicon) - integrates Silicon CLI tool to take code snapshots and create an image file
 - [vim-asciidoctor](https://github.com/habamax/vim-asciidoctor) - adds better/faster asciidoc support and some helpful export commands
+- [snacks.nvim](https://github.com/folke/snacks.nvim) - a collection of small QoL plugins
 
 ## K9s
 
