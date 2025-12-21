@@ -35,7 +35,9 @@ local define_workspaces = function() -- Dynamically defines workspaces based on 
         templates = {
           folder = vim.NIL,
         },
-        disable_frontmatter = true,
+        frontmatter = {
+          enabled = false
+        },
       },
     })
   return workspaces
@@ -57,7 +59,7 @@ local create_note_func = function()
     obsidian_vault_names[i] = path:gsub(obsidian_vaults_dir .. "/", "")
   end
 
-  vim.ui.select( -- Using this means it depends on "stevearc/dressing.nvim" for a nice UI
+  Snacks.picker.select( -- Using this means it depends on snacks.nvim for a nicer UI
     obsidian_vault_names,
     { prompt = "Select a vault: " },
     function (choice)
@@ -76,7 +78,7 @@ local img_folder_path = function()
 end
 
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*",
   lazy = true,
   ft = "markdown",
@@ -87,8 +89,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
-    "nvim-telescope/telescope.nvim",
-    "stevearc/dressing.nvim", -- Some custom functions depend on this
+    "folke/snacks.nvim",
   },
   config = function()
     -- Set plugin configuration
@@ -100,7 +101,9 @@ return {
       },
       notes_subdir = "0_inbox",
       new_notes_location = "notes_subdir",
-      disable_frontmatter = false,
+      frontmatter = {
+        enabled = false
+      },
       templates = {
         subdir = "templates",
         date_format = "%Y-%m-%d",
@@ -145,6 +148,18 @@ return {
     -- Set useful keymaps
     local keymap = vim.keymap
     keymap.set("n", "<leader>ft", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g | noh<CR>", { desc = "Format note title (cursor must be on title line)" })
-    keymap.set("n", "<leader>opi", ":ObsidianPasteImg<CR>", { desc = "Obsidian Paste Image. Paste image link into note." })
+
+    -- TODO: need to fix paste image command
+    -- keymap.set("n", "<leader>opi",
+    --   function()
+    --     vim.ui.input({ prompt = "Image name: " }, function (input)
+    --       if not input or input == "" then
+    --         return
+    --       end
+    --       vim.cmd("Obsidian paste_img " .. vim.fn.fnameescape(input))
+    --     end)
+    --   end,
+    --   { desc = "Obsidian Paste Image. Paste image link into note." }
+    -- )
   end
 }
