@@ -12,6 +12,7 @@ return {
     },
     input = {},
     statuscolumn = {},
+    lazygit = {},
   },
   keys = {
     -- picker keys
@@ -27,5 +28,7 @@ return {
     { "<leader>ld", function() Snacks.picker.lsp_definitions() end, desc = "Find LSP definitions" },
     { "<leader>li", function() Snacks.picker.lsp_implementations() end, desc = "Find LSP implementations" },
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Find LSP type definition" },
+    -- lazygit
+    { "<leader>lg", function() Snacks.lazygit() end, desc = "Open Lazygit" },
   }
 }
