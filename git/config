@@ -16,5 +16,6 @@
 [push]
 	autoSetupRemote = true
 
+# https://difftastic.wilfred.me.uk/git.html
 [diff]
 	external = difft

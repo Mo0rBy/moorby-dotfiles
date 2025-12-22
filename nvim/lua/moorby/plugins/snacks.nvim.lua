@@ -39,7 +39,6 @@ return {
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git log" },
     { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git log (for current line)" },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git log (for current file)" },
-    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff (Hunks)" },
-    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
+    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" }, -- use this instead of 'git diff' equivalent to properly use externally configured diff tool
   }
 }

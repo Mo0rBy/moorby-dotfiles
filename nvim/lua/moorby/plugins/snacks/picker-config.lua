@@ -31,5 +31,10 @@ return {
     file = {
       truncate = "left"
     }
+  },
+  previewers = {
+    diff = {
+      style = "terminal",
+    }
   }
 }
