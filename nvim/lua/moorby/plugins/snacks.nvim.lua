@@ -35,5 +35,11 @@ return {
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Find LSP type definition" },
     -- lazygit
     { "<leader>lg", function() Snacks.lazygit() end, desc = "Open Lazygit" },
+    -- git
+    { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git log" },
+    { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git log (for current line)" },
+    { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git log (for current file)" },
+    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git diff (Hunks)" },
+    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
   }
 }
