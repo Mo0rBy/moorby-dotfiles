@@ -8,7 +8,11 @@ return {
       enabled = true
     },
     lazygit = {
-      enabled = true
+      enabled = true,
+      win = {
+        width = 0,
+        height = 0
+      }
     },
     picker = require("moorby.plugins.snacks.picker-config"),
     statuscolumn = {
