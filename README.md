@@ -99,7 +99,6 @@ They are listed in the same order they appear in the file tree, and are divided 
 
 The plugins listed here affect the _appearance_ of my Neovim editor, either adding new informative UI elements or modifying existing things to make them easier to read and process by eye.
 
-- [alpha](https://github.com/goolord/alpha-nvim) - adds a customizable greeting pane when you start neovim
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - makes it easier to see indentation (my configuration uses the `scope` too), this has dependencies for:
     - [indent-rainbowline](https://github.com/TheGLander/indent-rainbowline.nvim) - adds VSCode style rainbow indentation indiciators
 - [lualine](https://github.com/nvim-lualine/lualine.nvim) - adds a status line
