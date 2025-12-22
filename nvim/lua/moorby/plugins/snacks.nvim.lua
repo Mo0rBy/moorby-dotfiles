@@ -27,7 +27,14 @@ return {
         { section = "startup" },
       },
     },
+    input = {
+      enabled = true
+    },
+    lazygit = {
+      enabled = true
+    },
     picker = {
+      enabled = true,
       frecency = true,
       formatters = {
         file = {
@@ -35,9 +42,9 @@ return {
         }
       }
     },
-    input = {},
-    statuscolumn = {},
-    lazygit = {},
+    statuscolumn = {
+      enabled = true
+    }
   },
   keys = {
     -- picker keys
