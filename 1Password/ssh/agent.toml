@@ -30,4 +30,4 @@
 #  https://developer.1password.com/docs/ssh/agent/config
 
 [[ssh-keys]]
-account = "Will"
+account = "my.1password.com"
