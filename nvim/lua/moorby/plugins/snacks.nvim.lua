@@ -7,13 +7,7 @@ return {
     input = {
       enabled = true
     },
-    lazygit = {
-      enabled = true,
-      win = {
-        width = 0,
-        height = 0
-      }
-    },
+    lazygit = require("moorby.plugins.snacks.lazygit-config"),
     picker = require("moorby.plugins.snacks.picker-config"),
     statuscolumn = {
       enabled = true
