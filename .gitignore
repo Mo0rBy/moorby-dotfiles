@@ -55,3 +55,6 @@ brewfiles/work.Brewfile
 # unignore git directory
 !git/
 !git/**
+
+!1Password
+!1Password/**
