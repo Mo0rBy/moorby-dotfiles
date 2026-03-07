@@ -58,3 +58,6 @@ brewfiles/work.Brewfile
 
 !1Password
 !1Password/**
+
+!hypr
+!hypr/**
