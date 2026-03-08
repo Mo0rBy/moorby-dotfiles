@@ -61,3 +61,6 @@ brewfiles/work.Brewfile
 
 !hypr
 !hypr/**
+
+!waybar
+!waybar/**

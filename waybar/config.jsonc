@@ -1,0 +1,107 @@
+{
+  "position": "top",
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+
+  "modules-left": [
+    "tray"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "pulseaudio/slider",
+    "network",
+    "clock",
+    "custom/notification"
+  ],
+
+  // modules-left
+  "tray": {
+      "icon-size": 21,
+      "spacing": 10
+  },
+
+  // modules-center
+  "hyprland/workspaces": {
+      "persistent-workspaces": {
+               "*": 5
+         }
+  },
+
+  // modules-right
+  "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+          "headphone": "",
+          "default": ["", "", "", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol",
+      "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+  },
+
+  "network": {
+      "format": "{ifname}",
+
+      "format-icons": {
+          "wifi":     ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"], // array > signal strength ramp for WiFi
+          "ethernet": "",
+          "disconnected": "󰤭",
+          "linked": "󰈂"
+      },
+      "format-wifi": "{icon}",
+      "format-ethernet": "{icon}",
+      "format-disconnected": "{icon}",
+
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-disconnected": "Disconnected"
+  },
+
+  "clock": {
+    "format": "{:%a, %b %d, %Y - %R}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "left",
+      "on-scroll"     : 1,
+      "format": {
+        "weeks": "<span color='#4fd6be'><b>W{}</b></span>",
+        "today": "<span color='#ff757f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='16pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

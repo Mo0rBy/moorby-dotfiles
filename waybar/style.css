@@ -1,0 +1,162 @@
+@import 'colors/tokyo-night.css';
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: "Cousine Nerd Font", "Cousine Nerd Font Propo", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    min-height: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: @bg_dark1;
+}
+
+tooltip {
+    background: @bg;
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 6px;
+}
+
+#workspaces {
+    background-color: @bg;
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+
+    padding: 7.5px 7.5px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+
+    color: @fg;
+}
+
+#workspaces button {
+    background-color: @bg_dark1;
+    color: @blue;
+
+    padding: 3px 5px;
+    
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    
+    border-radius: 5px;
+
+    min-width: 20px;
+
+    transition: all 0.3s ease-in-out
+}
+
+#workspaces button.active {
+    background-color: @blue;
+    color: @bg_dark1;
+
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+}
+
+#workspaces button:hover {
+    background-color: @fg_dark;
+    color: @bg;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @bg;
+    border-radius: 5px;
+    min-width: 10px;
+    transition: all 0.3s ease-in-out
+}
+
+#pulseaudio,
+#network,
+#clock,
+
+#custom-notification {
+    background-color: @bg;
+    padding: 0 15px 0 15px;
+    margin: 0 0 0 12px;
+    border-radius: 5px;
+    border: 1px solid @bg_highlight;
+}
+
+#clock {
+    color: @green1;
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+}
+
+#custom-notification {
+    background-color: @bg;
+    color: @fg;
+}
+
+#pulseaudio {
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    background-color: @bg;
+    color: @green;
+}
+
+#pulseaudio-slider {
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    padding-right: 5px;
+    padding-left: 0;
+
+    background-color: @bg;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 15px;
+    min-width: 80px;
+    border-radius: 5px;
+    background: @terminal_black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background: @green;
+}
+
+#network {
+    color: @magenta;
+    border: 1px solid @bg_highlight;
+    border-radius: 5px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 17.5px;
+
+}
