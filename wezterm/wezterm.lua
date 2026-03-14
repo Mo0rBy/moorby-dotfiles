@@ -3,10 +3,6 @@ local wezterm = require 'wezterm'
 -- starts wezterm in MacOS fullscreen mode
 -- (need ""native_macos_fullscreen_mode" setting as well)
 -- (see "window settings")
-wezterm.on('gui-startup', function(cmd)
-  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-  window:gui_window():toggle_fullscreen()
-end)
 
 return {
   automatically_reload_config = true,
@@ -22,10 +18,28 @@ return {
 
   -- window settings
   adjust_window_size_when_changing_font_size = false,
-  native_macos_fullscreen_mode = true, -- needed for MacOS fullscreen start
+  native_macos_fullscreen_mode = false, -- needed for MacOS fullscreen start
 
   send_composed_key_when_left_alt_is_pressed = true, -- needed for MacOS to use left option key win key combination/macros
 
   term = "xterm-256color",
   default_prog = { '/bin/zsh', '-l' },
+
+  enable_wayland = true,
+
+  mouse_bindings = {
+    -- Scrolling with the mouse wheel
+    {
+      event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+      mods = 'NONE',
+      action = wezterm.action.ScrollByLine(-3),
+      alt_screen = false,
+    },
+    {
+      event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+      mods = 'NONE',
+      action = wezterm.action.ScrollByLine(3),
+      alt_screen = false,
+    },
+  }
 }
