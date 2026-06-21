@@ -1,107 +1,108 @@
 {
-  "position": "top",
-  "margin-top": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-
-  "modules-left": [
-    "tray"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
-    "pulseaudio",
-    "pulseaudio/slider",
-    "network",
-    "clock",
-    "custom/notification"
-  ],
-
-  // modules-left
-  "tray": {
-      "icon-size": 21,
-      "spacing": 10
-  },
-
-  // modules-center
-  "hyprland/workspaces": {
-      "persistent-workspaces": {
-               "*": 5
-         }
-  },
-
-  // modules-right
-  "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-muted": "",
-      "format-icons": {
-          "headphone": "",
-          "default": ["", "", "", ""]
-      },
-      "scroll-step": 1,
-      "on-click": "pavucontrol",
-      "ignored-sinks": ["Easy Effects Sink"]
-  },
-  "pulseaudio/slider": {
-      "min": 0,
-      "max": 100,
-      "orientation": "horizontal"
-  },
-
-  "network": {
-      "format": "{ifname}",
-
-      "format-icons": {
-          "wifi":     ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"], // array > signal strength ramp for WiFi
-          "ethernet": "",
-          "disconnected": "󰤭",
-          "linked": "󰈂"
-      },
-      "format-wifi": "{icon}",
-      "format-ethernet": "{icon}",
-      "format-disconnected": "{icon}",
-
-      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-      "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-      "tooltip-format-ethernet": "{ifname} ",
-      "tooltip-format-disconnected": "Disconnected"
-  },
-
-  "clock": {
-    "format": "{:%a, %b %d, %Y - %R}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode"          : "month",
-      "mode-mon-col"  : 3,
-      "weeks-pos"     : "left",
-      "on-scroll"     : 1,
-      "format": {
-        "weeks": "<span color='#4fd6be'><b>W{}</b></span>",
-        "today": "<span color='#ff757f'><b><u>{}</u></b></span>"
-      }
-    }
-  },
-
-  "custom/notification": {
-    "tooltip": true,
-    "format": "<span size='16pt'>{icon}</span>",
-    "format-icons": {
-      "notification": "󱅫",
-      "none": "󰂜",
-      "dnd-notification": "󰂠",
-      "dnd-none": "󰪓",
-      "inhibited-notification": "󰂛",
-      "inhibited-none": "󰪑",
-      "dnd-inhibited-notification": "󰂛",
-      "dnd-inhibited-none": "󰪑"
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "group/media"],
+    "modules-center": ["clock"],
+    "modules-right": ["hyprland/submap", "group/volume", "battery", "bluetooth", "network", "cpu", "memory"],
+    "hyprland/window": {
+        "max-length": 50
     },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  }
+    "battery": {
+        "interval": 60,
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+        },
+    },
+    "bluetooth": {
+      "format": "",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": " {num_connections}",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "on-click": "exec ghostty --title=bluetui -e bluetui"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": "exec ghostty --title=btop -e btop"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {percentage}%",
+        "tooltip-format": "{used:0.1f}G/{total:0.1f}G used",
+        "on-click": "exec ghostty --title=htop -e htop",
+    },
+    "network": {
+        "format": "",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "󰤭", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "󰖪",
+        "max-length": 50,
+        "on-click": "exec nmrs",
+    },
+    "clock": {
+      "format": "󰥔 {:%a, %d. %b %I:%M %p}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "format": {
+          "today": "<span color='#75f1fa'><b>{}</b></span>"
+        }
+      },
+      "on-click": "exec chromium --app=https://calendar.google.com"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "ignored-sinks": ["Easy Effects Sink"],
+        "on-click": "pavucontrol",
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "group/volume": {
+      "orientation": "horizontal",
+      "modules": [
+        "pulseaudio",
+        "pulseaudio/slider"
+      ]
+    },
+    "group/media": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/media-animation",
+        "custom/media-now-playing",
+        "custom/media-time"
+      ]
+    },
+    "custom/media-now-playing": {
+      "exec": "~/.config/waybar/custom_modules/media/media-now-playing.sh",
+      "escape": true,
+      "tooltip": false,
+      "on-click": "playerctl play-pause",
+      "on-click-middle": "playerctl previous",
+      "on-click-right": "playerctl next",
+    },
+    "custom/media-animation": {
+      "exec": "~/.config/waybar/custom_modules/media/media-animation.sh",
+      "tooltip": false,
+    },
+    "custom/media-time": {
+      "exec": "~/.config/waybar/custom_modules/media/media-time.sh",
+      "escape": true,
+      "interval": 1,
+      "tooltip": false,
+    }
 }

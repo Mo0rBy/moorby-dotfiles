@@ -1,162 +1,107 @@
-@import 'colors/tokyo-night.css';
+@define-color highlight rgba(117, 241, 250, 1);
+@define-color dark-9 rgba(24, 24, 27, 1);
+@define-color dark-8 rgba(39, 39, 42, 1);
+@define-color dark-7 rgba(63, 63, 70, 1);
+@define-color dark-6 rgba(82, 82, 91, 1);
+@define-color dark-5 rgba(113, 113, 122, 1);
 
 * {
-    border: none;
-    border-radius: 0px;
-
-    font-family: "Cousine Nerd Font", "Cousine Nerd Font Propo", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-
-    min-height: 0;
-    margin: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 20px;
 }
 
 window#waybar {
-    background: @bg_dark1;
-}
-
-tooltip {
-    background: @bg;
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
-}
-
-tooltip label {
-    color: @fg;
-    padding: 6px;
-}
-
-#workspaces {
-    background-color: @bg;
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
-
-    padding: 7.5px 7.5px;
-
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 12px;
-    margin-right: 12px;
-
-    color: @fg;
+  background-color: @dark-9;
+  color: white;
 }
 
 #workspaces button {
-    background-color: @bg_dark1;
-    color: @blue;
-
-    padding: 3px 5px;
-    
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
-    margin-left: 3px;
-    margin-right: 3px;
-    
-    border-radius: 5px;
-
-    min-width: 20px;
-
-    transition: all 0.3s ease-in-out
+  padding: 3px;
+  margin: 7px 0px 7px 7px;
+  background: transparent;
+  border-radius: 2px;
+  color: white;
 }
 
 #workspaces button.active {
-    background-color: @blue;
-    color: @bg_dark1;
-
-    transition: all 0.3s ease-in-out;
-    font-size: 13px;
+  background: @highlight;
+  color: black;
+  font-weight: 700;
 }
 
-#workspaces button:hover {
-    background-color: @fg_dark;
-    color: @bg;
-    border-radius: 5px;
-    min-width: 20px;
-}
-
-#workspaces button.urgent {
-    background-color: @red;
-    color: @bg;
-    border-radius: 5px;
-    min-width: 10px;
-    transition: all 0.3s ease-in-out
-}
-
-#pulseaudio,
+#submap,
+#battery,
+#bluetooth,
 #network,
-#clock,
-
-#custom-notification {
-    background-color: @bg;
-    padding: 0 15px 0 15px;
-    margin: 0 0 0 12px;
-    border-radius: 5px;
-    border: 1px solid @bg_highlight;
+#cpu,
+#memory,
+#volume {
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: @dark-8;
+  margin: 5px 10px 5px 0px;
 }
 
-#clock {
-    color: @green1;
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
-}
-
-#custom-notification {
-    background-color: @bg;
-    color: @fg;
-}
-
-#pulseaudio {
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-
-    background-color: @bg;
-    color: @green;
+#submap,
+#workspaces button.urgent {
+  background: rgba(227, 81, 73, 1);
+  color: black;
 }
 
 #pulseaudio-slider {
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
-    border-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-    padding-right: 5px;
-    padding-left: 0;
-
-    background-color: @bg;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 8px;
 }
+
 #pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  all: unset;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
+
 #pulseaudio-slider trough {
-    min-height: 15px;
-    min-width: 80px;
-    border-radius: 5px;
-    background: @terminal_black;
+  min-height: 8px;
+  min-width: 75px;
+  border-radius: 5px;
+  background: @dark-7;
 }
+
 #pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background: @green;
+  min-width: 10px;
+  border-radius: 5px;
+  background: @highlight;
 }
 
-#network {
-    color: @magenta;
-    border: 1px solid @bg_highlight;
-    border-radius: 5px;
+#media {
+  color: #42ff9f;
+  margin: 7px 0px 7px 80px;
+}
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 17.5px;
+#custom-media-animation {
+  font-size: 13px;
+  margin-right: 10px;
+}
 
+#custom-media-now-playing {
+  margin-right: 10px;
+}
+
+#custom-media-time {
+  color: @dark-5;
+  font-size: 14px;
+}
+
+tooltip {
+  background: @dark-9;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: white;
 }
