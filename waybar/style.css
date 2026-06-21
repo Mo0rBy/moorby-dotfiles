@@ -6,9 +6,8 @@
 @define-color dark-5 rgba(113, 113, 122, 1);
 
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrainsMono Nerd Font Propo;
-  font-size: 20px;
+  font-family: "Cousine Nerd Font", "Cousine Nerd Font Propo", sans-serif;
+  font-size: 16px;
 }
 
 window#waybar {
