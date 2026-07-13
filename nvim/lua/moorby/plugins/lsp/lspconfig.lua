@@ -4,7 +4,11 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    "smjonas/inc-rename.nvim",
+    -- inc-rename is its own cmd-lazy spec (loads on :IncRename); the <leader>rn
+    -- keymap set on LspAttach triggers it, so it need not be a dependency here.
+    -- Loaded here (not at startup) so mason.setup() runs — and prepends its bin
+    -- dir to PATH — before servers are enabled below.
+    "mason-org/mason.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")

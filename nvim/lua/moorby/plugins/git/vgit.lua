@@ -1,8 +1,10 @@
 return {
   'tanvirtin/vgit.nvim',
   dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-  -- Lazy loading on 'VimEnter' event is necessary.
-  event = 'VimEnter',
+  -- Load after the UI is drawn so vgit stays off the startup/dashboard critical
+  -- path. VeryLazy still loads eagerly (right after startup) so buffer auto-attach
+  -- and hunk signs work as before.
+  event = 'VeryLazy',
   config = function()
     local vgit = require('vgit')
     vgit.setup({
