@@ -84,12 +84,44 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   tmux
-  fluxcd
 )
 
 # Plugin configuration
 # Plugin config variables must go here (before sourcing oh-my-zsh.sh)
 ZSH_TMUX_AUTOSTART=true
+
+# Skip oh-my-zsh's completion security audit (compaudit). Safe on a single-user
+# machine and avoids an extra fpath scan on every startup.
+ZSH_DISABLE_COMPFIX=true
+
+# Speed up completion init. oh-my-zsh calls `compinit` with no caching, which
+# rebuilds the ~50KB completion dump on EVERY startup (~700ms). This shim
+# intercepts that call (oh-my-zsh's `autoload -U compinit` does not override an
+# already-defined function) and instead trusts the cached dump via `compinit -C`
+# (~20ms), only doing a full rebuild when the dump is missing or >24h old.
+compinit() {
+  unfunction compinit
+  autoload -Uz compinit
+  # Glob qualifiers must be evaluated in a filename-generation context (not in
+  # [[ ]]); this array is non-empty only when the dump is older than 24h.
+  local -a stale
+  setopt local_options extended_glob
+  stale=( "${ZSH_COMPDUMP}"(#qN.mh+24) )
+  if [[ -f "$ZSH_COMPDUMP" && ${#stale} -eq 0 ]]; then
+    compinit -C -d "$ZSH_COMPDUMP"   # fresh dump: trust it, skip the rescan
+  else
+    compinit -i -d "$ZSH_COMPDUMP"   # missing or stale (>24h): full rebuild
+  fi
+}
+
+# Enabled zsh-completions installed with HomeBrew
+# (needs to be done before sourcing oh-my-zsh)
+# if type brew &>/dev/null; then
+#   FPATH=$FPATH:$(brew --prefix)/share/zsh-completions
+#
+#   autoload -U compinit && compinit -i
+# fi
+# (leaving this out for now, as I don't really need it)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -149,8 +181,17 @@ alias lt="eza -al --sort=modified" # lists everything sorted by time updated
 # Activate sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Activate pyenv
-eval "$(pyenv init -)"
+# Activate pyenv — lazy-loaded to keep shell startup fast.
+# `python` is managed by mise (activated below); pyenv's own init is deferred
+# until the first time you actually run `pyenv`, at which point this stub
+# replaces itself with the real thing.
+if command -v pyenv >/dev/null 2>&1; then
+  pyenv() {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    pyenv "$@"
+  }
+fi
 
 # Activate zsh-autosuggestions
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -168,18 +209,26 @@ function yy() {
   rm -f -- "$tmp"
 }
 
-# Enabled zsh-completions installed with HomeBrew
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit -i
-fi
-
 alias ":q"="exit"
 
 export PATH=$PATH:$(go env GOPATH)/bin # Add go bin to PATH
 
 export KIND_EXPERIMENTAL_PROVIDER=podman # Set Kind to use Podman provider
 
+# Load 'nvm' (node version manager) — lazy-loaded to keep shell startup fast.
+# Eagerly sourcing nvm ran `nvm_auto` on every startup (~1.9s). `node`/`npm`
+# are provided by mise, so we only stub the `nvm` command itself: the first
+# time you run `nvm`, this replaces itself with the real nvm (which sources
+# nvm.sh, applying any .nvmrc auto-use at that point) and re-runs your command.
+export NVM_DIR="$HOME/.nvm"
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  nvm() {
+    unset -f nvm
+    \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # nvm bash completion
+    nvm "$@"
+  }
+fi
+
 # TODO: Create a conditional to check ohmyzsh is installed, if not, install it
+eval "$(mise activate zsh)"
