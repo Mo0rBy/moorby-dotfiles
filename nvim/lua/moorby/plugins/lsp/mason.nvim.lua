@@ -3,7 +3,10 @@ return {
   dependencies = {
     "mason-org/mason-lspconfig.nvim"
   },
-  lazy = false,
+  -- Not loaded at startup: lspconfig lists mason as a dependency, so it loads on
+  -- BufReadPre (before any LSP server spawns, ensuring mason's bin dir is on
+  -- PATH). cmd lets `:Mason` etc. load it standalone from the dashboard.
+  cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
   config = function()
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
