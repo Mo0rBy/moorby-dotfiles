@@ -1,21 +1,26 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
+  lazy = false,
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    local treesitter_configs = require("nvim-treesitter.configs")
+    require("nvim-treesitter").install("all") -- ensures that all language parsers are installed
 
-    treesitter_configs.setup({
-      highlight = {
-        enable = true,
-        disable = { "helm" } -- helm TS highlight query is broken; vim-helm provides syntax instead
-      },
-      indent = { enable = true },
-      autotag = { enable = true }, -- uses dependency "windwp/nvim-ts-autotag"
-      ensure_installed = "all" -- ensures that all language parsers are installed
+    require("nvim-ts-autotag").setup() -- no longer configured via nvim-treesitter.configs
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "*",
+      callback = function(args)
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+        if args.match == "helm" then
+          return -- helm TS highlight query is broken; vim-helm provides syntax instead
+        end
+
+        pcall(vim.treesitter.start)
+      end,
     })
   end
 }
