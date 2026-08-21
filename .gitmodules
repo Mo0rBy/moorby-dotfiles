@@ -1,9 +1,16 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+	shallow = true
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+	shallow = true
+[submodule "zsh/custom/themes/powerlevel10k"]
+	path = zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+	shallow = true
 [submodule "yazi/flavors/tokyo-night.yazi"]
 	path = yazi/flavors/tokyo-night.yazi
 	url = https://github.com/BennyOe/tokyo-night.yazi.git
+	shallow = true
