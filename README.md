@@ -106,6 +106,7 @@ The plugins listed here affect the _appearance_ of my Neovim editor, either addi
 - [noice](https://github.com/folke/noice.nvim) - adds different UI elements and more customisation to notifications, cmdline and searching
 - [quicker.nvim](https://github.com/stevearc/quicker.nvim) - makes the quickfix list prettier and have better formatting
 - [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim) - adds rainbow bracket delimiters (`{}` and `()`)
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) - renders markdown in the buffer (headings, code blocks, tables, checkboxes, etc.)
 
 #### Explorer
 

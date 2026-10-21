@@ -130,6 +130,9 @@ return {
           opts = { buffer = true },
         },
       },
+      ui = {
+        enable = false
+      },
       attachments = {
         img_folder = img_folder_path(),
         img_text_func = function(client, path)
