@@ -6,6 +6,7 @@
 !.gitignore
 !.gitmodules
 !README.md
+!CLAUDE.md
 !.pre-commit-config.yaml
 
 # unignore zsh configs
